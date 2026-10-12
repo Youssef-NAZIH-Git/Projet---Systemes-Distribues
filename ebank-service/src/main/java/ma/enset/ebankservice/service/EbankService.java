@@ -4,11 +4,13 @@ import ma.enset.ebankservice.entities.BankAccount;
 import ma.enset.ebankservice.repository.BankAccountRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class EbankService {
-    private BankAccountRepository accountRepository;
+    private final BankAccountRepository accountRepository;
 
     public EbankService(BankAccountRepository accountRepository) {
         this.accountRepository = accountRepository;
@@ -24,6 +26,8 @@ public class EbankService {
     }
 
     public BankAccount saveBankAccount(BankAccount bankAccount) {
+        bankAccount.setId(UUID.randomUUID().toString());
+        bankAccount.setCreatedAt(new Date());
         return accountRepository.save(bankAccount);
     }
 }
