@@ -15,6 +15,7 @@ public class EbankAIAgent {
 
     public EbankAIAgent(ChatClient.Builder builder, ChatMemory chatMemory, ToolCallbackProvider tools) {
         this.chatClient = builder
+                .defaultSystem("You are an AI assistant that responds within the given context of bank customers. If not context is given, respond with I do not know.")
                 .defaultAdvisors(MessageChatMemoryAdvisor.builder(chatMemory).build())
                 .defaultTools(tools)
                 .build();
