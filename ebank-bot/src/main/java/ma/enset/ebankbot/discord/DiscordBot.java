@@ -4,13 +4,14 @@ import com.zgamelogic.discord.annotations.DiscordController;
 import com.zgamelogic.discord.annotations.DiscordMapping;
 import ma.enset.ebankbot.agents.EbankAIAgent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import org.springframework.ai.chat.prompt.Prompt;
 
 @DiscordController
 public class DiscordBot {
-    private EbankAIAgent ebankAIAgent;
+    private final EbankAIAgent agent;
 
-    public DiscordBot(EbankAIAgent ebankAIAgent) {
-        this.ebankAIAgent = ebankAIAgent;
+    public DiscordBot(EbankAIAgent agent) {
+        this.agent = agent;
     }
 
     @DiscordMapping
@@ -20,7 +21,7 @@ public class DiscordBot {
         }
 
         String query = event.getMessage().getContentRaw();
-        String response = ebankAIAgent.chat(query);
+        String response = agent.chat(new Prompt(query));
         event.getChannel().sendMessage(response).queue();
     }
 }
