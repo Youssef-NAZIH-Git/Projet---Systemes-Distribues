@@ -133,3 +133,9 @@ Créer `getDefaultCustomer` avec **l'identifiant d'abord, puis l'exception**. Re
 | Customer Service arrêté | Compte accessible avec les informations client par défaut. |
 | Service redémarré, après une nouvelle tentative | Informations du client à nouveau disponibles. |
 
+
+
+
+
+
+<img width="665" height="385" alt="image" src="https://github.com/user-attachments/assets/0d791e06-1689-4c35-89a4-6696b89f47fd" />
