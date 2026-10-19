@@ -1,5 +1,6 @@
 # EBank — Microservices
-
+<img width="665" height="385" alt="image" src="https://github.com/user-attachments/assets/0d791e06-1689-4c35-89a4-6696b89f47fd" />
+<img width="1440" height="1631" alt="Screenshot_20261019_002515_Telegram" src="https://github.com/user-attachments/assets/11c0582b-73da-4e1c-9ea3-bf1645309c47" />
 Projet réalisé avec **Java 21, Maven et Spring Boot 4.1.1**. Extraits de code et résultats attendus des étapes de la démonstration.
 
 ## 1. Créer les deux microservices métier
@@ -138,4 +139,4 @@ Créer `getDefaultCustomer` avec **l'identifiant d'abord, puis l'exception**. Re
 
 
 
-<img width="665" height="385" alt="image" src="https://github.com/user-attachments/assets/0d791e06-1689-4c35-89a4-6696b89f47fd" />
+
