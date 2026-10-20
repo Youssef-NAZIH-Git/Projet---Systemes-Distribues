@@ -3,10 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
+import {MarkdownComponent} from 'ngx-markdown';
 
 @Component({
   selector: 'app-bot',
-  imports: [FormsModule, AsyncPipe],
+  imports: [FormsModule, AsyncPipe, MarkdownComponent],
   templateUrl: './bot.html',
   styleUrl: './bot.css',
 })

@@ -20,7 +20,7 @@
 
     <div class="card-body">
       @if (response$ | async; as response) {
-        {{ response }}
+        <markdown [data]="response"></markdown>
       }
     </div>
   </div>
