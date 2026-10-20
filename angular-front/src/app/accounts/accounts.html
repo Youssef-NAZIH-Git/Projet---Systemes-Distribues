@@ -1,23 +1,39 @@
 <div class="p-3">
-  @if (accounts$|async; as state){
-    <table class="table">
-      <thead>
-      <tr>
-        <th>ID</th><th>Balance</th><th>Date</th><th>Type</th><th>Customer ID</th>
-      </tr>
-      </thead>
-      <tbody>
-        @for (account of state.accounts; track account.id) {
-          <tr>
-            <td>{{ account.id }}</td>
-            <td>{{ account.balance }}</td>
-            <td>{{ account.createdAt }}</td>
-            <td>{{ account.type }}</td>
-            <td>{{ account.customerId }}</td>
-          </tr>
-        }
-      </tbody>
-    </table>
-  }
 
+  @if (loadingService.isLoading()) {
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Chargement...</span>
+    </div>
+  }
+  @if (accounts$ | async; as state) {
+    @if (state.status === RequestStatus.ERROR) {
+      <div class="text-danger">
+        {{ state.errorMessage }}
+      </div>
+    } @else if (state.status === RequestStatus.SUCCESS) {
+      <table class="table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Balance</th>
+          <th>Created at</th>
+          <th>Type</th>
+          <th>Customer ID</th>
+        </tr>
+        </thead>
+
+        <tbody>
+          @for (account of state.accounts ?? []; track account.id) {
+            <tr>
+              <td>{{ account.id }}</td>
+              <td>{{ account.balance }}</td>
+              <td>{{ account.createdAt }}</td>
+              <td>{{ account.type }}</td>
+              <td>{{ account.customerId }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+  }
 </div>
